@@ -6,7 +6,6 @@ from contextlib import redirect_stdout, redirect_stderr
 from io import BytesIO, TextIOWrapper
 
 from flake8.main import application
-from flake8.options import config
 
 import pytest
 
@@ -223,29 +222,9 @@ def check_file(
         args += ['--show-source']
     if statistics:
         args += ['--statistics']
-    args += [str(path)]
     app = application.Application()
-    prelim_opts, remaining_args = app.parse_preliminary_options(args)
-    cfg, cfg_dir = config.load_config(
-        config=prelim_opts.config,
-        extra=prelim_opts.append_config,
-        isolated=prelim_opts.isolated,
-    )
-    app.find_plugins(
-        cfg,
-        cfg_dir,
-        enable_extensions=prelim_opts.enable_extensions,
-        require_plugins=prelim_opts.require_plugins,
-    )
-    app.register_plugin_options()
-    app.parse_configuration_and_cli(cfg, cfg_dir, remaining_args)
     if flake8ignore:
-        app.options.ignore = flake8ignore
-    app.make_formatter()  # fix this
-    app.make_guide()
-    app.make_file_checker_manager()
-    app.run_checks()
-    app.formatter.start()
-    app.report_errors()
-    app.formatter.stop()
+        args += ["--ignore", flake8ignore]
+    args += [str(path)]
+    app.run(args)
     return app.result_count

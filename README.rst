@@ -1,21 +1,31 @@
-.. image:: https://img.shields.io/pypi/v/pytest-flake8.svg
+.. image:: https://img.shields.io/pypi/v/pytest-flake8.svg?label=pytest-flake8
    :target: https://pypi.org/project/pytest-flake8
+   :alt: Package
 
-.. image:: https://img.shields.io/pypi/pyversions/pytest-flake8.svg
 
-.. image:: https://github.com/coherent-oss/pytest-flake8/actions/workflows/main.yml/badge.svg
-   :target: https://github.com/coherent-oss/pytest-flake8/actions?query=workflow%3A%22tests%22
-   :alt: tests
+.. image:: https://readthedocs.org/projects/pytest-flake8/badge
+   :target: https://pytest-flake8.readthedocs.io/en/latest
+   :alt: Documentation
+
+
+.. image:: https://github.com/coherent-oss/pytest-flake8/actions/workflows/main.yml/badge.svg?label=test
+   :target: https://github.com/PyCQA/flake8/actions?query=workflow=main
+   :alt: Tests
+
+
+.. image:: https://img.shields.io/pypi/v/flake8.svg?label=flake8
+    :target: https://github.com/PyCQA/flake8
+    :alt: Flake8
+
 
 .. image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json
     :target: https://github.com/astral-sh/ruff
     :alt: Ruff
 
-.. image:: https://readthedocs.org/projects/pytest-flake8/badge/?version=latest
-   :target: https://pytest-flake8.readthedocs.io/en/latest/?badge=latest
 
 .. image:: https://img.shields.io/badge/skeleton-2024-informational
    :target: https://blog.jaraco.com/skeleton
+   :alt: skeleton
 
 
 pytest plugin for efficiently checking PEP8 compliance 
@@ -24,7 +34,9 @@ pytest plugin for efficiently checking PEP8 compliance
 Usage
 -----
 
-Install it into a test environment, then run tests with the option::
+Install it into a test environment, then run tests with the option.
+
+.. code-block:: bash
 
     pytest --flake8
 
@@ -60,7 +72,16 @@ All the Flake8 tests are skipping!
 
 By design, results are cached and only changed files are checked.
 
-Run with ``pytest --cache-clear --flake8`` to bypass.
+To bypass this caching mechanism, run the following command:
+
+.. code-block:: bash
+
+    pytest --cache-clear --flake8
+
+Run tests with [tox](https://tox.wiki) (e.g. `pipx run tox`).
+
+For more information, take a look at the `skeleton <https://blog.jaraco.com/skeleton/>`_.
+
 
 Notes
 -----
