@@ -136,11 +136,14 @@ class Flake8Item(pytest.Item):
             pytest.skip("file(s) previously passed FLAKE8 checks")
 
     def runtest(self):
-        with BytesIO() as bo, TextIOWrapper(
-            bo, encoding='utf-8'
-        ) as to, BytesIO() as be, TextIOWrapper(
-            be, encoding='utf-8'
-        ) as te, redirect_stdout(to), redirect_stderr(te):
+        with (
+            BytesIO() as bo,
+            TextIOWrapper(bo, encoding='utf-8') as to,
+            BytesIO() as be,
+            TextIOWrapper(be, encoding='utf-8') as te,
+            redirect_stdout(to),
+            redirect_stderr(te),
+        ):
             found_errors = check_file(
                 self.fspath,
                 self.flake8ignore,
