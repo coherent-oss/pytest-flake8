@@ -2,8 +2,11 @@
 
 import pathlib
 import textwrap
+from packaging import version
 
 import pytest
+
+from flake8 import __version__ as flake8_version
 
 pytest_plugins = ("pytester",)
 
@@ -39,6 +42,10 @@ class TestIgnores:
         assert ign(tmpdir.join("a/y.py")) == "E203 E300".split()
         assert ign(tmpdir.join("a/z.py")) is None
 
+    @pytest.mark.xfail(
+        version.parse(flake8_version) >= version.parse("6.0.0"),
+        reason="Requires Flake8 version earlier than 6.0.0.",
+    )
     def test_default_flake8_ignores(self, testdir):
         testdir.makeini("""
             [pytest]

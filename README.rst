@@ -24,7 +24,9 @@ pytest plugin for efficiently checking PEP8 compliance
 Usage
 -----
 
-Install it into a test environment, then run tests with the option::
+Install it into a test environment, then run tests with the option.
+
+.. code-block:: bash
 
     pytest --flake8
 
@@ -60,7 +62,16 @@ All the Flake8 tests are skipping!
 
 By design, results are cached and only changed files are checked.
 
-Run with ``pytest --cache-clear --flake8`` to bypass.
+To bypass this caching mechanism, run the following command:
+
+.. code-block:: bash
+
+    pytest --cache-clear --flake8
+
+Run tests with [tox](https://tox.wiki) (e.g. `pipx run tox`).
+
+For more information, take a look at the `skeleton <https://blog.jaraco.com/skeleton/>`_.
+
 
 Notes
 -----

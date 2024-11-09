@@ -1,0 +1,1 @@
+Compatible for Flake8 from version ``flake8>=4``.
