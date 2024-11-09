@@ -1,3 +1,12 @@
+v1.3.0
+======
+
+Features
+--------
+
+- Compatible for Flake8 from version ``flake8>=4``. (#4)
+
+
 v1.2.2
 ======
 
