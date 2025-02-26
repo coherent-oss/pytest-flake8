@@ -14,7 +14,7 @@
 .. image:: https://readthedocs.org/projects/pytest-flake8/badge/?version=latest
    :target: https://pytest-flake8.readthedocs.io/en/latest/?badge=latest
 
-.. image:: https://img.shields.io/badge/skeleton-2024-informational
+.. image:: https://img.shields.io/badge/skeleton-2025-informational
    :target: https://blog.jaraco.com/skeleton
 
 
